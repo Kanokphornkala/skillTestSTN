@@ -14,6 +14,8 @@ Feature: test
     And user enter number of "<travelers>" and number of "<rooms>"
     And user select Airline "<class>"
     When user clicks on "Search" button
+    And user clicks on "Distance from Downtown" button
+    Then print list of hotels located withing 2 miles
 
   Examples:
   |origin|destination|departing|returning|travelers|rooms|class|

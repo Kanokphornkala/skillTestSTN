@@ -3,13 +3,17 @@ package step_definitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.HomePage;
+import pages.ResultsPage;
 import pages.VacationPackagesPage;
 import ui_utils.Driver;
 import ui_utils.Selenium_utils;
 
 public class VacationPackageStepDefs {
     VacationPackagesPage vacationPackagesPage = new VacationPackagesPage();
+    ResultsPage resultsPage = new ResultsPage();
 
     @When("user clicks on {string} button")
     public void userClicksOnButton(String button) {
@@ -19,6 +23,11 @@ public class VacationPackageStepDefs {
                 break;
             case "search":
                 vacationPackagesPage.searchButton.click();
+                break;
+            case "distance from downtown":
+                WebDriverWait wait = new WebDriverWait(Driver.get(), 15);
+                wait.until(ExpectedConditions.invisibilityOf(resultsPage.loadingMask));
+                resultsPage.distanceSorting.click();
                 break;
             default:
                 System.out.println("Invalid button name");
