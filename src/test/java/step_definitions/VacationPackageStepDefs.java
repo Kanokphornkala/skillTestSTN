@@ -25,8 +25,6 @@ public class VacationPackageStepDefs {
                 vacationPackagesPage.searchButton.click();
                 break;
             case "distance from downtown":
-                WebDriverWait wait = new WebDriverWait(Driver.get(), 15);
-                wait.until(ExpectedConditions.invisibilityOf(resultsPage.loadingMask));
                 resultsPage.distanceSorting.click();
                 break;
             default:
