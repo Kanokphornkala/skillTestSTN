@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import step_definitions.Hooks;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Selenium_utils {
@@ -69,6 +70,14 @@ public class Selenium_utils {
             e.printStackTrace();
         }
         highlightElement(element);
+    }
+
+    public static List<String> getElementsText(List<WebElement> list) {
+        List<String> elemTexts = new ArrayList<>();
+        for (WebElement el : list) {
+            elemTexts.add(el.getText());
+        }
+        return elemTexts;
     }
 
     public static void highlightElement(WebElement element){
