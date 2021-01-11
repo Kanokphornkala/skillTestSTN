@@ -9,6 +9,7 @@ import step_definitions.Hooks;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class Selenium_utils {
     public static void sleep(long milliseconds){
@@ -78,6 +79,13 @@ public class Selenium_utils {
             elemTexts.add(el.getText());
         }
         return elemTexts;
+    }
+
+    public static void switchToWindow(String currentPageID){
+        Set<String> set = Driver.get().getWindowHandles();
+        for (String window: set){
+            if (!window.equalsIgnoreCase(currentPageID)) Driver.get().switchTo().window(window);
+        }
     }
 
     public static void highlightElement(WebElement element){
