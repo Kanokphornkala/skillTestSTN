@@ -40,6 +40,7 @@ public class VacationPackagesPage {
     @FindBy(xpath = "//button[@id='search-button-hp-package']")
     public WebElement searchButton;
 
+
     public WebElement getCityFromDropDown(String text){
         List<WebElement> list = Driver.get().findElements(By.xpath("//ul[@id='typeaheadDataPlain']//li/a"));
         for(int i = 0; i < list.size(); i++){
